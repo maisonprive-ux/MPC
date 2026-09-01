@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICONIC PRIVÉ · ATELIER | Lujo de Origen Verificado</title>
+  
+  <!-- Tipografías de Prestigio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN Standalone -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#050505',
+              surface: '#0D0D0E',
+              card: '#121214',
+              border: 'rgba(255, 255, 255, 0.08)',
+              borderActive: 'rgba(212, 175, 55, 0.4)',
+              gold: '#D4AF37',
+              silver: '#E5E5E5',
+              muted: '#71717A',
+              light: '#F4F4F5'
+            }
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Estilos Maestros Inline -->
+  <style>
+    body {
+      background-color: #050505;
+      color: #F4F4F5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+    .glass-pill {
+      background: rgba(18, 18, 20, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: #0D0D0E;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glow-radial {
+      background: radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.12) 0%, rgba(5, 5, 5, 0) 70%);
+    }
+    .gold-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, rgba(5, 5, 5, 0) 70%);
+    }
+    .noise-layer {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 99;
+    }
+  </style>
+
+  <!-- GSAP & Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="selection:bg-brand-gold selection:text-black">
+  <div class="noise-layer"></div>
+
+  <!-- 1. Floating Pill Navigation -->
+  <header class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
+    <nav class="glass-pill rounded-full px-6 py-3 flex items-center justify-between gap-8 max-w-2xl w-full shadow-2xl">
+      <div class="flex items-center gap-3">
+        <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+        <span class="font-cinzel text-xs tracking-widest text-white font-bold">ICONIC PRIVÉ</span>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-xs text-brand-muted tracking-wider">
+        <a href="#manifiesto" class="hover:text-white transition-colors duration-300">ORIGEN</a>
+        <a href="#vitrina" class="hover:text-white transition-colors duration-300">LOTE CERO</a>
+        <a href="#diagnostico" class="hover:text-white transition-colors duration-300">DIAGNÓSTICO</a>
+      </div>
+      <a href="#diagnostico" class="bg-white text-black text-xs font-semibold px-4 py-2 rounded-full hover:bg-brand-gold hover:text-black transition-all duration-300 shadow-md">
+        SOLICITAR ASIGNACIÓN
+      </a>
+    </nav>
+  </header>
+
+  <!-- 2. Hero Section (Inspirado en Aluro) -->
+  <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 pt-28 pb-16 glow-radial">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] tracking-widest text-brand-gold uppercase mb-8">
+      <span>TARIJA, BOLIVIA · EDICIÓN LIMITADA</span>
+    </div>
+    
+    <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white max-w-5xl leading-[1.1] mb-6">
+      El Lujo no se anuncia.<br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 via-neutral-400 to-neutral-600 italic">
+        Se verifica.
+      </span>
+    </h1>
+
+    <p class="font-sans text-brand-muted text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed mb-10">
+      Casa boliviana de alta joyería mineral en Plata .925, cuero de vaqueta de Tarija con curtido vegetal y curaduría olfativa privada fraccionada en 6ml.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center gap-4">
+      <a href="#diagnostico" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-semibold text-xs tracking-wider uppercase hover:bg-brand-gold hover:scale-105 transition-all duration-300 shadow-xl">
+        Iniciar Diagnóstico Privado
+      </a>
+      <a href="#vitrina" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card text-white font-medium text-xs tracking-wider uppercase hover:border-white/30 transition-all duration-300">
+        Ver Curadurías Disponibles
+      </a>
+    </div>
+
+    <!-- Indicador de Status -->
+    <div class="mt-16 flex items-center gap-3 text-xs text-brand-muted">
+      <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+      <span>ATELIER TARIJA · 12 SETS RESTANTES EN LOTE CERO</span>
+    </div>
+  </section>
+
+  <!-- 3. Manifiesto de Origen Verificado -->
+  <section id="manifiesto" class="py-24 px-4 max-w-6xl mx-auto border-t border-white/5">
+    <div class="text-center mb-16">
+      <span class="text-brand-gold text-xs tracking-widest uppercase font-semibold">Trazabilidad Absoluta</span>
+      <h2 class="font-cinzel text-2xl sm:text-4xl text-white font-semibold mt-2">Fundamentos de Nuestra Materia</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Tarjeta 1 -->
+      <div class="glass-card p-8 rounded-2xl relative overflow-hidden group hover:border-brand-gold/40 transition-all duration-500">
+        <span class="font-cinzel text-5xl font-bold text-white/5 absolute right-4 top-4 select-none">01</span>
+        <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold mb-6">
+          💎
+        </div>
+        <h3 class="font-cinzel text-lg text-white font-semibold mb-3">Mineralogía & Plata .925</h3>
+        <p class="text-brand-muted text-xs leading-relaxed font-light">
+          Gemas nobles bolivianas (Ónix, Ojo de Tigre, Jadeíta) engastadas a mano en orfebrería de Plata Ley .925 sin tratamientos térmicos ni resinas sintéticas.
+        </p>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="glass-card p-8 rounded-2xl relative overflow-hidden group hover:border-brand-gold/40 transition-all duration-500">
+        <span class="font-cinzel text-5xl font-bold text-white/5 absolute right-4 top-4 select-none">02</span>
+        <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold mb-6">
+          ⚜️
+        </div>
+        <h3 class="font-cinzel text-lg text-white font-semibold mb-3">Cuero Noble de Tarija</h3>
+        <p class="text-brand-muted text-xs leading-relaxed font-light">
+          Vaqueta de curtido 100% vegetal libre de cromo pesado. Envejecimiento con pátina orgánica única y memoria táctil certificada de origen tarijeño.
+        </p>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="glass-card p-8 rounded-2xl relative overflow-hidden group hover:border-brand-gold/40 transition-all duration-500">
+        <span class="font-cinzel text-5xl font-bold text-white/5 absolute right-4 top-4 select-none">03</span>
+        <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold mb-6">
+          🧪
+        </div>
+        <h3 class="font-cinzel text-lg text-white font-semibold mb-3">Olfato de Nicho Fraccionado</h3>
+        <p class="text-brand-muted text-xs leading-relaxed font-light">
+          Extracción y decantación en frascos de vidrio cosmético de 6ml con sellado hermético al vacío, permitiendo rotar acordes sin adquirir botellas completas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Vitrina Oficial "Lote Cero" -->
+  <section id="vitrina" class="py-24 px-4 max-w-6xl mx-auto gold-glow">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div>
+        <span class="text-brand-gold text-xs tracking-widest uppercase font-semibold">Curadurías Oficiales</span>
+        <h2 class="font-cinzel text-3xl sm:text-4xl text-white font-semibold mt-2">Colección Lote Cero</h2>
+      </div>
+      <p class="text-brand-muted text-xs max-w-xs mt-4 md:mt-0 font-light">
+        Cada set incluye: 1 Talismán Mineral en Plata .925 + 2 Decants de 6ml de extractos de nicho.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Set 1 -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10 hover:border-brand-gold/60 transition-all duration-500 group">
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-[10px] font-semibold text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full border border-brand-gold/20">LOTE LT-00-SOV</span>
+            <span class="text-xs text-brand-muted">4 Sets Restantes</span>
+          </div>
+          <h3 class="font-cinzel text-xl text-white font-bold mb-2">Perfil I: El Soberano</h3>
+          <p class="text-xs text-brand-muted font-light mb-6">Presencia nocturna, autoridad implícita y densidad oscura.</p>
+          
+          <div class="space-y-3 py-4 border-y border-white/5 text-xs">
+            <div class="flex items-center justify-between text-neutral-300">
+              <span>Mineral</span>
+              <span class="font-semibold text-white">Ónix Negro Mate</span>
+            </div>
+            <div class="flex items-center justify-between text-neutral-300">
+              <span>Decant A (6ml)</span>
+              <span class="text-brand-silver">One Million Parfum</span>
+            </div>
+            <div class="flex items-center justify-between text-neutral-300">
+              <span>Decant B (6ml)</span>
+              <span class="text-brand-silver">Club de Nuit Oud</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-4 flex items-center justify-between">
+          <div>
+            <span class="text-[10px] text-brand-muted uppercase block">Inversión Lote</span>
+            <span class="font-cinzel text-xl text-white font-bold">Bs. 490</span>
+          </div>
+          <button onclick="preseleccionarBundle('BUNDLE-01', 'Perfil I: El Soberano', 'Ónix Negro')" class="px-4 py-2.5 rounded-full bg-white text-black text-xs font-semibold hover:bg-brand-gold transition-all duration-300">
+            Asignar Set
+          </button>
+        </div>
+      </div>
+
+      <!-- Set 2 -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10 hover:border-brand-gold/60 transition-all duration-500 group">
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-[10px] font-semibold text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full border border-brand-gold/20">LOTE LT-00-EST</span>
+            <span class="text-xs text-brand-muted">4 Sets Restantes</span>
+          </div>
+          <h3 class="font-cinzel text-xl text-white font-bold mb-2">Perfil II: El Estratega</h3>
+          <p class="text-xs text-brand-muted font-light mb-6">Claridad analítica, dinamismo diurno y sofisticación cítrica-ámbar.</p>
+          
+          <div class="space-y-3 py-4 border-y border-white/5 text-xs">
+            <div class="flex items-center justify-between text-neutral-300">
+              <span>Mineral</span>
+              <span class="font-semibold text-white">Ojo de Tigre Dorado</span>
+            </div>
+            <div class="flex items-center justify-between text-neutral-300">
+              <span>Decant A (6ml)</span>
+              <span class="text-brand-silver">Club de Nuit Précieux 1</span>
+            </div>
+            <div class="flex items-center justify-between text-neutral-300">
+              <span>Decant B (6ml)</span>
+              <span class="text-brand-silver">Turathi Blue</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-4 flex items-center justify-between">
+          <div>
+            <span class="text-[10px] text-brand-muted uppercase block">Inversión Lote</span>
+            <span class="font-cinzel text-xl text-white font-bold">Bs. 490</span>
+          </div>
+          <button onclick="preseleccionarBundle('BUNDLE-02', 'Perfil II: El Estratega', 'Ojo de Tigre')" class="px-4 py-2.5 rounded-full bg-white text-black text-xs font-semibold hover:bg-brand-gold transition-all duration-300">
+            Asignar Set
+          </button>
+        </div>
+      </div>
+
+      <!-- Set 3 -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10 hover:border-brand-gold/60 transition-all duration-500 group">
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-[10px] font-semibold text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full border border-brand-gold/20">LOTE LT-00-MAG</span>
+            <span class="text-xs text-brand-muted">4 Sets Restantes</span>
+          </div>
+          <h3 class="font-cinzel text-xl text-white font-bold mb-2">Perfil III: El Magnético</h3>
+          <p class="text-xs text-brand-muted font-light mb-6">Equilibrio mineral armónico, calidez especiada y aura contemporánea.</p>
+          
+          <div class="space-y-3 py-4 border-y border-white/5 text-xs">
+            <div class="flex items-center justify-between text-neutral-300">
+              <span>Mineral</span>
+              <span class="font-semibold text-white">Jadeíta Noble Natural</span>
+            </div>
+            <div class="flex items-center justify-between text-neutral-300">
+              <span>Decant A (6ml)</span>
+              <span class="text-brand-silver">Club de Nuit Précieux 1</span>
+            </div>
+            <div class="flex items-center justify-between text-neutral-300">
+              <span>Decant B (6ml)</span>
+              <span class="text-brand-silver">Hawas Elixir</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-4 flex items-center justify-between">
+          <div>
+            <span class="text-[10px] text-brand-muted uppercase block">Inversión Lote</span>
+            <span class="font-cinzel text-xl text-white font-bold">Bs. 490</span>
+          </div>
+          <button onclick="preseleccionarBundle('BUNDLE-03', 'Perfil III: El Magnético', 'Jadeíta')" class="px-4 py-2.5 rounded-full bg-white text-black text-xs font-semibold hover:bg-brand-gold transition-all duration-300">
+            Asignar Set
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Formulario de Diagnóstico Nativo Multi-Paso -->
+  <section id="diagnostico" class="py-24 px-4 max-w-3xl mx-auto border-t border-white/5">
+    <div class="text-center mb-12">
+      <span class="text-brand-gold text-xs tracking-widest uppercase font-semibold">Concierge Privado</span>
+      <h2 class="font-cinzel text-3xl sm:text-4xl text-white font-semibold mt-2">Diagnóstico de Asignación</h2>
+      <p class="text-brand-muted text-xs mt-2 font-light">Define tu perfil de uso para calibrar la materia mineral y el acorde olfativo exacto.</p>
+    </div>
+
+    <div class="glass-card rounded-3xl p-8 border border-white/10 relative shadow-2xl">
+      <!-- Indicador de Pasos -->
+      <div class="flex items-center justify-between mb-8 pb-6 border-b border-white/5 text-xs">
+        <div id="step-indicator-1" class="font-semibold text-brand-gold">01. Dinámica</div>
+        <div id="step-indicator-2" class="font-medium text-neutral-600">02. Materia & Olfato</div>
+        <div id="step-indicator-3" class="font-medium text-neutral-600">03. Despacho</div>
+      </div>
+
+      <form id="quizForm" onsubmit="enviarDiagnostico(event)">
+        <!-- Paso 1: Dinámica de Uso -->
+        <div id="quiz-step-1" class="space-y-4">
+          <label class="block text-xs uppercase tracking-wider text-brand-muted font-medium mb-3">¿Cuál es tu principal entorno de presencia?</label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button type="button" onclick="seleccionarUso('Directorio / Ejecutivo', this)" class="uso-btn p-4 rounded-xl glass-card text-left text-xs text-white border border-white/10 hover:border-brand-gold focus:border-brand-gold transition-all">
+              <span class="block font-semibold mb-1">Ejecutivo</span>
+              <span class="text-[10px] text-brand-muted">Reuniones de alto impacto y acuerdos.</span>
+            </button>
+            <button type="button" onclick="seleccionarUso('Noches / Gala', this)" class="uso-btn p-4 rounded-xl glass-card text-left text-xs text-white border border-white/10 hover:border-brand-gold focus:border-brand-gold transition-all">
+              <span class="block font-semibold mb-1">Noches / Gala</span>
+              <span class="text-[10px] text-brand-muted">Eventos sociales y proyección magnética.</span>
+            </button>
+            <button type="button" onclick="seleccionarUso('Colección / Regalo', this)" class="uso-btn p-4 rounded-xl glass-card text-left text-xs text-white border border-white/10 hover:border-brand-gold focus:border-brand-gold transition-all">
+              <span class="block font-semibold mb-1">Regalo Exclusivo</span>
+              <span class="text-[10px] text-brand-muted">Pieza de alta distinción personal.</span>
+            </button>
+          </div>
+          <div class="mt-8 flex justify-end">
+            <button type="button" onclick="irAlPaso(2)" class="px-6 py-3 rounded-full bg-white text-black text-xs font-semibold hover:bg-brand-gold transition-all">
+              Continuar ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- Paso 2: Selección de Materia -->
+        <div id="quiz-step-2" class="space-y-6 hidden">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-brand-muted font-medium mb-3">Preferencia Mineral (Plata .925)</label>
+            <div class="grid grid-cols-3 gap-3">
+              <button type="button" onclick="seleccionarMineral('Ónix Negro', this)" class="mineral-btn p-3 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
+                Ónix Negro
+              </button>
+              <button type="button" onclick="seleccionarMineral('Ojo de Tigre', this)" class="mineral-btn p-3 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
+                Ojo de Tigre
+              </button>
+              <button type="button" onclick="seleccionarMineral('Jadeíta', this)" class="mineral-btn p-3 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
+                Jadeíta
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-brand-muted font-medium mb-3">Perfil Olfativo Deseado</label>
+            <div class="grid grid-cols-3 gap-3">
+              <button type="button" onclick="seleccionarOlfato('Cuero & Maderas Nobles', this)" class="olfato-btn p-3 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
+                Cuero & Oud
+              </button>
+              <button type="button" onclick="seleccionarOlfato('Cítrico & Ámbar', this)" class="olfato-btn p-3 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
+                Cítrico / Ámbar
+              </button>
+              <button type="button" onclick="seleccionarOlfato('Especiado & Ámbar', this)" class="olfato-btn p-3 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
+                Especiado
+              </button>
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center pt-4">
+            <button type="button" onclick="irAlPaso(1)" class="text-xs text-brand-muted hover:text-white">
+              🠔 Volver
+            </button>
+            <button type="button" onclick="irAlPaso(3)" class="px-6 py-3 rounded-full bg-white text-black text-xs font-semibold hover:bg-brand-gold transition-all">
+              Calificar Datos ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- Paso 3: Datos de Despacho -->
+        <div id="quiz-step-3" class="space-y-4 hidden">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-brand-muted font-medium mb-1">Nombre Completo</label>
+            <input type="text" id="nombreInput" required placeholder="Ej: Carlos Mendoza" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-gold">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-brand-muted font-medium mb-1">Teléfono Móvil (WhatsApp)</label>
+            <input type="tel" id="telefonoInput" required placeholder="+591 7XXXXXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-gold">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-brand-muted font-medium mb-1">Ciudad de Despacho Prioritario</label>
+            <select id="ciudadInput" class="w-full bg-brand-surface border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-gold">
+              <option value="Santa Cruz">Santa Cruz (Urubó / Equipetrol / Norte)</option>
+              <option value="La Paz">La Paz (Zona Sur / Calacoto)</option>
+              <option value="Cochabamba">Cochabamba</option>
+              <option value="Tarija">Tarija (Atelier Central)</option>
+              <option value="Otra">Otra Ciudad</option>
+            </select>
+          </div>
+
+          <div class="flex justify-between items-center pt-4">
+            <button type="button" onclick="irAlPaso(2)" class="text-xs text-brand-muted hover:text-white">
+              🠔 Volver
+            </button>
+            <button type="submit" id="submitBtn" class="px-8 py-3.5 rounded-full bg-brand-gold text-black text-xs font-bold uppercase tracking-wider hover:bg-yellow-500 transition-all shadow-lg">
+              Confirmar Asignación Privada
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 6. Footer Minimalista -->
+  <footer class="py-12 px-4 border-t border-white/5 text-center text-xs text-brand-muted space-y-3">
+    <div class="font-cinzel text-sm text-white font-semibold tracking-widest">ICONIC PRIVÉ · ATELIER</div>
+    <p class="font-light">Orfebrería en Plata .925, Vaqueta Vegetal Tarijeña y Curaduría Olfativa DTC.</p>
+    <div class="text-[10px] text-neutral-600 pt-4">
+      © 2026 ICONIC PRIVÉ ATELIER. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- 7. Script Controlador del Frontend -->
+  <script>
+    // Variables de Estado
+    const state = {
+      intencion_uso: 'Directorio / Ejecutivo',
+      acuerdo_mineral: 'Ónix Negro',
+      perfil_olfativo: 'Cuero & Maderas Nobles',
+      bundle_preseleccionado: null
+    };
+
+    // Inicializar Smooth Scroll (Lenis)
+    const lenis = new Lenis({ duration: 1.2, smooth: true });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Navegación de Pasos del Quiz
+    function irAlPaso(paso) {
+      document.getElementById('quiz-step-1').classList.add('hidden');
+      document.getElementById('quiz-step-2').classList.add('hidden');
+      document.getElementById('quiz-step-3').classList.add('hidden');
+      
+      document.getElementById(`quiz-step-${paso}`).classList.remove('hidden');
+
+      // Actualizar indicadores visuales
+      const ind1 = document.getElementById('step-indicator-1');
+      const ind2 = document.getElementById('step-indicator-2');
+      const ind3 = document.getElementById('step-indicator-3');
+      
+      ind1.className = paso === 1 ? 'font-semibold text-brand-gold' : 'font-medium text-neutral-600';
+      ind2.className = paso === 2 ? 'font-semibold text-brand-gold' : 'font-medium text-neutral-600';
+      ind3.className = paso === 3 ? 'font-semibold text-brand-gold' : 'font-medium text-neutral-600';
+    }
+
+    function seleccionarUso(uso, btn) {
+      state.intencion_uso = uso;
+      document.querySelectorAll('.uso-btn').forEach(b => b.classList.remove('border-brand-gold'));
+      btn.classList.add('border-brand-gold');
+    }
+
+    function seleccionarMineral(mineral, btn) {
+      state.acuerdo_mineral = mineral;
+      document.querySelectorAll('.mineral-btn').forEach(b => b.classList.remove('border-brand-gold', 'bg-white/10'));
+      btn.classList.add('border-brand-gold', 'bg-white/10');
+    }
+
+    function seleccionarOlfato(olfato, btn) {
+      state.perfil_olfativo = olfato;
+      document.querySelectorAll('.olfato-btn').forEach(b => b.classList.remove('border-brand-gold', 'bg-white/10'));
+      btn.classList.add('border-brand-gold', 'bg-white/10');
+    }
+
+    function preseleccionarBundle(id, nombre, mineral) {
+      state.bundle_preseleccionado = id;
+      state.acuerdo_mineral = mineral;
+      irAlPaso(3);
+      document.getElementById('diagnostico').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Envío Asíncrono hacia Backend / Fallback WhatsApp
+    async function enviarDiagnostico(event) {
+      event.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerText = "CALIBRANDO ASIGNACIÓN...";
+
+      const payload = {
+        nombre: document.getElementById('nombreInput').value.trim(),
+        telefono: document.getElementById('telefonoInput').value.trim(),
+        ciudad: document.getElementById('ciudadInput').value,
+        intencion_uso: state.intencion_uso,
+        acuerdo_mineral: state.acuerdo_mineral,
+        perfil_olfativo: state.perfil_olfativo,
+        codigo_referido: ""
+      };
+
+      // URL de tu endpoint de Xano (Reemplazar con tu endpoint real)
+      const XANO_ENDPOINT = 'https://TU_XANO_API_URL/api:v1/concierge/diagnostic';
+
+      try {
+        const response = await fetch(XANO_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          window.location.href = data.whatsapp_direct_url;
+        } else {
+          throw new Error('Error en API');
+        }
+      } catch (error) {
+        // Fallback elegante directo a WhatsApp si falla la red
+        const fallbackMsg = encodeURIComponent(
+          `Deseo solicitar mi asignación de Lote Cero.\n\n` +
+          `• Cliente: ${payload.nombre}\n` +
+          `• Ciudad: ${payload.ciudad}\n` +
+          `• Materia: ${payload.acuerdo_mineral}\n` +
+          `• Perfil: ${payload.perfil_olfativo}`
+        );
+        window.location.href = `https://wa.me/59177123456?text=${fallbackMsg}`;
+      }
+    }
+  </script>
+</body>
+</html>
