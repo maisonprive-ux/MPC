@@ -1,555 +1,122 @@
-<!DOCTYPE html>
-<html lang="es" class="dark scroll-smooth">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAISON PRIVÉ × THE FRAGRANCE STUDIO | Edición Lote Cero</title>
-  
-  <!-- Tipografías de Haute Parfumerie & Joyería -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN Standalone -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              black: '#040405',
-              surface: '#0A0A0C',
-              card: '#111113',
-              border: 'rgba(255, 255, 255, 0.08)',
-              borderActive: 'rgba(212, 175, 55, 0.45)',
-              gold: '#D4AF37',
-              goldLight: '#F3E5AB',
-              silver: '#E5E5E5',
-              muted: '#8E8E93',
-              light: '#F8F8F8'
-            }
-          },
-          fontFamily: {
-            serif: ['Cinzel', 'serif'],
-            editorial: ['"Cormorant Garamond"', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Estilos Maestros Inline -->
-  <style>
-    body {
-      background-color: #040405;
-      color: #F8F8F8;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    .font-cinzel { font-family: 'Cinzel', serif; }
-    .font-editorial { font-family: 'Cormorant Garamond', serif; }
-    .glass-pill {
-      background: rgba(14, 14, 16, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .glass-card {
-      background: #0B0B0D;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-    }
-    .glow-radial {
-      background: radial-gradient(circle at 50% 25%, rgba(59, 130, 246, 0.1) 0%, rgba(4, 4, 5, 0) 70%);
-    }
-    .gold-glow {
-      background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.07) 0%, rgba(4, 4, 5, 0) 70%);
-    }
-    .noise-layer {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 99;
-    }
-  </style>
-
-  <!-- GSAP & Lenis Smooth Scroll -->
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maison Privé Atelier — Maison Privé Concierge</title>
+  <meta name="description" content="Maison Privé Atelier. Joyería mineral y curaduría de lujo. Atención privada por WhatsApp." />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
 </head>
-<body class="selection:bg-brand-gold selection:text-black">
-  <div class="noise-layer"></div>
-
-  <!-- 1. Floating Pill Navigation -->
-  <header class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
-    <nav class="glass-pill rounded-full px-6 py-3.5 flex items-center justify-between gap-6 max-w-2xl w-full shadow-2xl">
-      <div class="flex items-center gap-3">
-        <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-        <span class="font-cinzel text-xs tracking-[0.2em] text-white font-bold">MAISON PRIVÉ</span>
+<body class="bg-white text-gray-800 antialiased">
+  <!-- Header -->
+  <header class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
+    <div class="flex items-center space-x-4">
+      <div class="w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center font-semibold">MP</div>
+      <div>
+        <h1 class="text-lg font-medium">Maison Privé Concierge</h1>
+        <p class="text-sm text-gray-500">Maison Privé Atelier · Lujo de Origen Verificado</p>
       </div>
-      <div class="hidden md:flex items-center gap-7 text-[11px] text-brand-muted tracking-[0.15em] font-medium uppercase">
-        <a href="#manifiesto" class="hover:text-white transition-colors duration-300">Manifiesto</a>
-        <a href="#vitrina" class="hover:text-white transition-colors duration-300">Lote Cero</a>
-        <a href="#diagnostico" class="hover:text-white transition-colors duration-300">Concierge</a>
-      </div>
-      <a href="#diagnostico" class="bg-white text-black text-[11px] font-semibold tracking-wider px-4 py-2 rounded-full hover:bg-brand-gold hover:text-black transition-all duration-300 shadow-md">
-        ASIGNACIÓN PRIVADA
-      </a>
+    </div>
+    <nav class="hidden md:flex space-x-6 text-sm">
+      <a href="#catalogo" class="text-gray-700 hover:text-gray-900">Catálogo</a>
+      <a href="#bundles" class="text-gray-700 hover:text-gray-900">Bundles</a>
+      <a href="#cata" class="text-gray-700 hover:text-gray-900">Cata Privada</a>
     </nav>
   </header>
 
-  <!-- 2. Hero Section Editorial -->
-  <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 pt-32 pb-20 glow-radial">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-[10px] tracking-[0.25em] text-brand-gold uppercase mb-8 font-medium">
-      <span>EDICIÓN COLABORATIVA · ATELIER TARIJA</span>
-    </div>
-    
-    <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white max-w-5xl leading-[1.08] mb-6">
-      El Lujo no se anuncia.<br>
-      <span class="font-editorial italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 via-neutral-400 to-neutral-600 block mt-2 text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
-        Se verifica.
-      </span>
-    </h1>
-
-    <p class="font-sans text-brand-muted text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed mb-12">
-      Una alianza de origen: Alta orfebrería mineral en Plata .925 y vaqueta vegetal por <strong class="text-white font-medium">Maison Privé</strong> junto a la curaduría olfativa de nicho fraccionada en 6ml por <strong class="text-white font-medium">The Fragrance Studio</strong>.
-    </p>
-
-    <div class="flex flex-col sm:flex-row items-center gap-4">
-      <a href="#diagnostico" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-semibold text-xs tracking-[0.15em] uppercase hover:bg-brand-gold hover:scale-105 transition-all duration-300 shadow-xl">
-        Iniciar Diagnóstico Concierge
-      </a>
-      <a href="#vitrina" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card text-white font-medium text-xs tracking-[0.15em] uppercase hover:border-white/30 transition-all duration-300">
-        Explorar Curadurías
-      </a>
-    </div>
-
-    <!-- Indicador de Status -->
-    <div class="mt-20 flex items-center gap-3 text-xs text-brand-muted tracking-wider">
-      <span class="w-1.5 h-1.5 rounded-full bg-brand-gold animate-ping"></span>
-      <span class="font-mono text-[11px] uppercase">Lote Cero: 12 Asignaciones Disponibles en Bolivia</span>
-    </div>
-  </section>
-
-  <!-- 3. Manifiesto de Origen Verificado -->
-  <section id="manifiesto" class="py-28 px-4 max-w-6xl mx-auto border-t border-white/5">
-    <div class="text-center mb-20">
-      <span class="text-brand-gold text-xs tracking-[0.25em] uppercase font-semibold">Trazabilidad de la Materia</span>
-      <h2 class="font-cinzel text-3xl sm:text-4xl text-white font-semibold mt-3">Alianza de Especialistas</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Tarjeta 1 -->
-      <div class="glass-card p-8 rounded-2xl relative overflow-hidden group hover:border-brand-gold/40 transition-all duration-500">
-        <span class="font-cinzel text-5xl font-bold text-white/5 absolute right-4 top-4 select-none">01</span>
-        <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lg mb-6">
-          💎
-        </div>
-        <div class="text-[10px] text-brand-gold uppercase tracking-[0.2em] font-semibold mb-2">Maison Privé</div>
-        <h3 class="font-cinzel text-lg text-white font-semibold mb-3">Mineralogía & Plata .925</h3>
-        <p class="text-brand-muted text-xs leading-relaxed font-light">
-          Gemas nobles bolivianas (Ónix Negro, Ojo de Tigre, Jadeíta) engastadas en orfebrería de Plata Ley .925 sin tratamientos térmicos ni polímeros sintéticos.
-        </p>
-      </div>
-
-      <!-- Tarjeta 2 -->
-      <div class="glass-card p-8 rounded-2xl relative overflow-hidden group hover:border-brand-gold/40 transition-all duration-500">
-        <span class="font-cinzel text-5xl font-bold text-white/5 absolute right-4 top-4 select-none">02</span>
-        <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lg mb-6">
-          ⚜️
-        </div>
-        <div class="text-[10px] text-brand-gold uppercase tracking-[0.2em] font-semibold mb-2">Maison Privé</div>
-        <h3 class="font-cinzel text-lg text-white font-semibold mb-3">Vaqueta Noble de Tarija</h3>
-        <p class="text-brand-muted text-xs leading-relaxed font-light">
-          Cuero con curtido 100% vegetal libre de sales de cromo. Pátina orgánica evolutiva con memoria táctil y trazabilidad de origen tarijeño.
-        </p>
-      </div>
-
-      <!-- Tarjeta 3 -->
-      <div class="glass-card p-8 rounded-2xl relative overflow-hidden group hover:border-brand-gold/40 transition-all duration-500">
-        <span class="font-cinzel text-5xl font-bold text-white/5 absolute right-4 top-4 select-none">03</span>
-        <div class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lg mb-6">
-          🧪
-        </div>
-        <div class="text-[10px] text-brand-gold uppercase tracking-[0.2em] font-semibold mb-2">The Fragrance Studio</div>
-        <h3 class="font-cinzel text-lg text-white font-semibold mb-3">Curaduría Olfativa Nómada</h3>
-        <p class="text-brand-muted text-xs leading-relaxed font-light">
-          Extracción y decantación en frascos de cristal cosmético de 6ml con sellado al vacío. Rota acordes de extracto puro sin comprometer botellas completas.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Vitrina Oficial "Lote Cero" -->
-  <section id="vitrina" class="py-28 px-4 max-w-6xl mx-auto gold-glow">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-gray-50 to-white">
+    <div class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <span class="text-brand-gold text-xs tracking-[0.25em] uppercase font-semibold">Edición Limitada Colaborativa</span>
-        <h2 class="font-cinzel text-3xl sm:text-4xl text-white font-semibold mt-2">Colección Lote Cero</h2>
+        <h2 class="text-3xl font-serif text-gray-900">Atelier en Tarija · Atención privada</h2>
+        <p class="mt-4 text-gray-600">Curaduría de joyería mineral y piezas Atelier. Recomendaciones personalizadas por nuestro concierge híbrido IA + humano.</p>
+        <div class="mt-6 flex space-x-3">
+          <a id="btn-consult" class="inline-block bg-gray-900 text-white px-5 py-3 text-sm rounded-md" href="#" role="button">Hablar con el concierge</a>
+          <a href="#catalogo" class="inline-block border border-gray-300 px-5 py-3 text-sm rounded-md text-gray-700">Ver catálogo</a>
+        </div>
+        <p class="mt-4 text-xs text-gray-400">Atención privada por cita. Sala Santa Cruz por invitación.</p>
       </div>
-      <p class="text-brand-muted text-xs max-w-xs mt-4 md:mt-0 font-light leading-relaxed">
-        Cada set sensorial integra: 1 Talismán Mineral en Plata .925 (Maison Privé) + 2 Extractos de 6ml (The Fragrance Studio).
-      </p>
+      <div class="rounded-lg overflow-hidden shadow-lg">
+        <img src="/assets/hero.jpg" alt="Atelier Maison Privé" class="w-full h-72 object-cover">
+      </div>
     </div>
+  </section>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Set 1 -->
-      <div class="glass-card rounded-2xl p-7 flex flex-col justify-between border border-white/10 hover:border-brand-gold/60 transition-all duration-500 group">
-        <div>
-          <div class="flex justify-between items-center mb-5">
-            <span class="text-[10px] font-semibold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 tracking-wider">LOTE LT-00-SOV</span>
-            <span class="text-[11px] text-brand-muted font-mono">4 Sets Restantes</span>
-          </div>
-          <h3 class="font-cinzel text-xl text-white font-bold mb-2">Perfil I: El Soberano</h3>
-          <p class="text-xs text-brand-muted font-light mb-6 leading-relaxed">Presencia nocturna, autoridad implícita y acordes oscuros de cuero y oud.</p>
-          
-          <div class="space-y-3.5 py-5 border-y border-white/5 text-xs">
-            <div class="flex items-center justify-between">
-              <span class="text-brand-muted">Talismán Mineral</span>
-              <span class="font-semibold text-white">Ónix Negro Mate · Plata .925</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-brand-muted">Extracto A (6ml)</span>
-              <span class="text-brand-silver font-medium">One Million Parfum</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-brand-muted">Extracto B (6ml)</span>
-              <span class="text-brand-silver font-medium">Club de Nuit Oud</span>
-            </div>
+  <!-- Catalogo -->
+  <section id="catalogo" class="max-w-6xl mx-auto px-6 py-12">
+    <h3 class="text-xl font-medium mb-6">Catálogo seleccionado</h3>
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Productos renderizados por JS -->
+    </div>
+  </section>
+
+  <!-- Bundles -->
+  <section id="bundles" class="bg-gray-50 py-12">
+    <div class="max-w-5xl mx-auto px-6">
+      <h3 class="text-xl font-medium mb-4">Bundles Maison Privé x The Fragrance Studio</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-4 bg-white rounded-lg shadow-sm">
+          <h4 class="font-semibold">Bundle Descubrimiento</h4>
+          <p class="text-sm text-gray-500 mt-2">Pulsera ónix + decant 5ml</p>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-lg font-medium">Bs. 320</div>
+            <button class="btn-reserve bg-gray-900 text-white px-4 py-2 rounded" data-sku="bundle-1">Reservar</button>
           </div>
         </div>
-
-        <div class="mt-8 pt-4 flex items-center justify-between">
-          <div>
-            <span class="text-[10px] text-brand-muted uppercase tracking-wider block">Inversión Set</span>
-            <span class="font-cinzel text-2xl text-white font-bold">Bs. 490</span>
-          </div>
-          <button onclick="preseleccionarBundle('BUNDLE-01', 'Perfil I: El Soberano', 'Ónix Negro')" class="px-5 py-3 rounded-full bg-white text-black text-xs font-semibold tracking-wider hover:bg-brand-gold transition-all duration-300">
-            Asignar Set
-          </button>
-        </div>
-      </div>
-
-      <!-- Set 2 -->
-      <div class="glass-card rounded-2xl p-7 flex flex-col justify-between border border-white/10 hover:border-brand-gold/60 transition-all duration-500 group">
-        <div>
-          <div class="flex justify-between items-center mb-5">
-            <span class="text-[10px] font-semibold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 tracking-wider">LOTE LT-00-EST</span>
-            <span class="text-[11px] text-brand-muted font-mono">4 Sets Restantes</span>
-          </div>
-          <h3 class="font-cinzel text-xl text-white font-bold mb-2">Perfil II: El Estratega</h3>
-          <p class="text-xs text-brand-muted font-light mb-6 leading-relaxed">Claridad analítica, dinamismo ejecutivo y proyección cítrica ambarada.</p>
-          
-          <div class="space-y-3.5 py-5 border-y border-white/5 text-xs">
-            <div class="flex items-center justify-between">
-              <span class="text-brand-muted">Talismán Mineral</span>
-              <span class="font-semibold text-white">Ojo de Tigre Dorado · Plata .925</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-brand-muted">Extracto A (6ml)</span>
-              <span class="text-brand-silver font-medium">Club de Nuit Précieux 1</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-brand-muted">Extracto B (6ml)</span>
-              <span class="text-brand-silver font-medium">Turathi Blue</span>
-            </div>
+        <div class="p-4 bg-white rounded-lg shadow-sm">
+          <h4 class="font-semibold">Bundle Ejecutivo</h4>
+          <p class="text-sm text-gray-500 mt-2">Cuff cuero + decant 10ml</p>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-lg font-medium">Bs. 1.250</div>
+            <button class="btn-reserve bg-gray-900 text-white px-4 py-2 rounded" data-sku="bundle-2">Reservar</button>
           </div>
         </div>
-
-        <div class="mt-8 pt-4 flex items-center justify-between">
-          <div>
-            <span class="text-[10px] text-brand-muted uppercase tracking-wider block">Inversión Set</span>
-            <span class="font-cinzel text-2xl text-white font-bold">Bs. 490</span>
+        <div class="p-4 bg-white rounded-lg shadow-sm">
+          <h4 class="font-semibold">Pase Privado</h4>
+          <p class="text-sm text-gray-500 mt-2">Acceso a Sala Santa Cruz por cita</p>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-lg font-medium">Bs. 150 (crédito)</div>
+            <button class="btn-reserve bg-gray-900 text-white px-4 py-2 rounded" data-sku="bundle-3">Solicitar</button>
           </div>
-          <button onclick="preseleccionarBundle('BUNDLE-02', 'Perfil II: El Estratega', 'Ojo de Tigre')" class="px-5 py-3 rounded-full bg-white text-black text-xs font-semibold tracking-wider hover:bg-brand-gold transition-all duration-300">
-            Asignar Set
-          </button>
-        </div>
-      </div>
-
-      <!-- Set 3 -->
-      <div class="glass-card rounded-2xl p-7 flex flex-col justify-between border border-white/10 hover:border-brand-gold/60 transition-all duration-500 group">
-        <div>
-          <div class="flex justify-between items-center mb-5">
-            <span class="text-[10px] font-semibold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 tracking-wider">LOTE LT-00-MAG</span>
-            <span class="text-[11px] text-brand-muted font-mono">4 Sets Restantes</span>
-          </div>
-          <h3 class="font-cinzel text-xl text-white font-bold mb-2">Perfil III: El Magnético</h3>
-          <p class="text-xs text-brand-muted font-light mb-6 leading-relaxed">Equilibrio mineral armónico, calidez especiada y aura contemporánea.</p>
-          
-          <div class="space-y-3.5 py-5 border-y border-white/5 text-xs">
-            <div class="flex items-center justify-between">
-              <span class="text-brand-muted">Talismán Mineral</span>
-              <span class="font-semibold text-white">Jadeíta Noble · Plata .925</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-brand-muted">Extracto A (6ml)</span>
-              <span class="text-brand-silver font-medium">Club de Nuit Précieux 1</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-brand-muted">Extracto B (6ml)</span>
-              <span class="text-brand-silver font-medium">Hawas Elixir</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-8 pt-4 flex items-center justify-between">
-          <div>
-            <span class="text-[10px] text-brand-muted uppercase tracking-wider block">Inversión Set</span>
-            <span class="font-cinzel text-2xl text-white font-bold">Bs. 490</span>
-          </div>
-          <button onclick="preseleccionarBundle('BUNDLE-03', 'Perfil III: El Magnético', 'Jadeíta')" class="px-5 py-3 rounded-full bg-white text-black text-xs font-semibold tracking-wider hover:bg-brand-gold transition-all duration-300">
-            Asignar Set
-          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. Formulario de Diagnóstico Nativo Multi-Paso -->
-  <section id="diagnostico" class="py-28 px-4 max-w-3xl mx-auto border-t border-white/5">
-    <div class="text-center mb-14">
-      <span class="text-brand-gold text-xs tracking-[0.25em] uppercase font-semibold">Concierge Privado</span>
-      <h2 class="font-cinzel text-3xl sm:text-4xl text-white font-semibold mt-2">Diagnóstico de Asignación</h2>
-      <p class="text-brand-muted text-xs mt-3 font-light max-w-md mx-auto leading-relaxed">
-        Calibra tu pieza mineral forjada en Tarija y el acorde de extractos de perfumería privada.
-      </p>
-    </div>
-
-    <div class="glass-card rounded-3xl p-8 sm:p-10 border border-white/10 relative shadow-2xl">
-      <!-- Indicador de Pasos -->
-      <div class="flex items-center justify-between mb-10 pb-6 border-b border-white/5 text-xs tracking-wider">
-        <div id="step-indicator-1" class="font-semibold text-brand-gold">01. Contexto</div>
-        <div id="step-indicator-2" class="font-medium text-neutral-600">02. Materia & Acorde</div>
-        <div id="step-indicator-3" class="font-medium text-neutral-600">03. Concierge</div>
-      </div>
-
-      <form id="quizForm" onsubmit="enviarDiagnostico(event)">
-        <!-- Paso 1: Dinámica de Uso -->
-        <div id="quiz-step-1" class="space-y-5">
-          <label class="block text-xs uppercase tracking-[0.15em] text-brand-muted font-medium mb-3">¿Cuál es tu principal entorno de presencia?</label>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <button type="button" onclick="seleccionarUso('Directorio / Ejecutivo', this)" class="uso-btn p-5 rounded-2xl glass-card text-left text-xs text-white border border-white/10 hover:border-brand-gold focus:border-brand-gold transition-all">
-              <span class="block font-semibold mb-1 text-sm font-cinzel">Ejecutivo</span>
-              <span class="text-[11px] text-brand-muted leading-relaxed block font-light">Reuniones de alto impacto y acuerdos estratégicos.</span>
-            </button>
-            <button type="button" onclick="seleccionarUso('Noches / Gala', this)" class="uso-btn p-5 rounded-2xl glass-card text-left text-xs text-white border border-white/10 hover:border-brand-gold focus:border-brand-gold transition-all">
-              <span class="block font-semibold mb-1 text-sm font-cinzel">Noches / Gala</span>
-              <span class="text-[11px] text-brand-muted leading-relaxed block font-light">Eventos de gala y proyección magnética.</span>
-            </button>
-            <button type="button" onclick="seleccionarUso('Colección / Regalo', this)" class="uso-btn p-5 rounded-2xl glass-card text-left text-xs text-white border border-white/10 hover:border-brand-gold focus:border-brand-gold transition-all">
-              <span class="block font-semibold mb-1 text-sm font-cinzel">Colección</span>
-              <span class="text-[11px] text-brand-muted leading-relaxed block font-light">Regalo exclusivo o pieza de alta distinción.</span>
-            </button>
-          </div>
-          <div class="mt-8 flex justify-end">
-            <button type="button" onclick="irAlPaso(2)" class="px-7 py-3.5 rounded-full bg-white text-black text-xs font-semibold tracking-wider hover:bg-brand-gold transition-all">
-              Continuar Calibración ➔
-            </button>
-          </div>
-        </div>
-
-        <!-- Paso 2: Selección de Materia -->
-        <div id="quiz-step-2" class="space-y-6 hidden">
-          <div>
-            <label class="block text-xs uppercase tracking-[0.15em] text-brand-muted font-medium mb-3">Preferencia Mineral · Maison Privé (Plata .925)</label>
-            <div class="grid grid-cols-3 gap-3">
-              <button type="button" onclick="seleccionarMineral('Ónix Negro', this)" class="mineral-btn p-3.5 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
-                Ónix Negro
-              </button>
-              <button type="button" onclick="seleccionarMineral('Ojo de Tigre', this)" class="mineral-btn p-3.5 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
-                Ojo de Tigre
-              </button>
-              <button type="button" onclick="seleccionarMineral('Jadeíta', this)" class="mineral-btn p-3.5 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
-                Jadeíta Noble
-              </button>
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-xs uppercase tracking-[0.15em] text-brand-muted font-medium mb-3">Acorde Olfativo · The Fragrance Studio</label>
-            <div class="grid grid-cols-3 gap-3">
-              <button type="button" onclick="seleccionarOlfato('Cuero & Maderas Nobles', this)" class="olfato-btn p-3.5 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
-                Cuero & Oud
-              </button>
-              <button type="button" onclick="seleccionarOlfato('Cítrico & Ámbar', this)" class="olfato-btn p-3.5 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
-                Cítrico / Ámbar
-              </button>
-              <button type="button" onclick="seleccionarOlfato('Especiado & Ámbar', this)" class="olfato-btn p-3.5 rounded-xl glass-card text-center text-xs text-white border border-white/10 hover:border-brand-gold">
-                Especiado
-              </button>
-            </div>
-          </div>
-
-          <div class="flex justify-between items-center pt-4">
-            <button type="button" onclick="irAlPaso(1)" class="text-xs text-brand-muted hover:text-white">
-              🠔 Volver
-            </button>
-            <button type="button" onclick="irAlPaso(3)" class="px-7 py-3.5 rounded-full bg-white text-black text-xs font-semibold tracking-wider hover:bg-brand-gold transition-all">
-              Datos de Despacho ➔
-            </button>
-          </div>
-        </div>
-
-        <!-- Paso 3: Datos de Despacho -->
-        <div id="quiz-step-3" class="space-y-4 hidden">
-          <div>
-            <label class="block text-xs uppercase tracking-[0.15em] text-brand-muted font-medium mb-1.5">Nombre Completo</label>
-            <input type="text" id="nombreInput" required placeholder="Ej: Carlos Mendoza" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-brand-gold">
-          </div>
-          <div>
-            <label class="block text-xs uppercase tracking-[0.15em] text-brand-muted font-medium mb-1.5">Teléfono Móvil (WhatsApp)</label>
-            <input type="tel" id="telefonoInput" required placeholder="+591 7XXXXXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-brand-gold">
-          </div>
-          <div>
-            <label class="block text-xs uppercase tracking-[0.15em] text-brand-muted font-medium mb-1.5">Ciudad de Despacho Prioritario</label>
-            <select id="ciudadInput" class="w-full bg-brand-surface border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-brand-gold">
-              <option value="Santa Cruz">Santa Cruz (Urubó / Equipetrol / Norte)</option>
-              <option value="La Paz">La Paz (Zona Sur / Calacoto)</option>
-              <option value="Cochabamba">Cochabamba</option>
-              <option value="Tarija">Tarija (Atelier Central)</option>
-              <option value="Otra">Otra Ciudad de Bolivia</option>
-            </select>
-          </div>
-
-          <div class="flex justify-between items-center pt-5">
-            <button type="button" onclick="irAlPaso(2)" class="text-xs text-brand-muted hover:text-white">
-              🠔 Volver
-            </button>
-            <button type="submit" id="submitBtn" class="px-8 py-4 rounded-full bg-brand-gold text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-yellow-500 transition-all shadow-xl">
-              Solicitar Asignación Concierge
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- 6. Footer Minimalista -->
-  <footer class="py-14 px-4 border-t border-white/5 text-center text-xs text-brand-muted space-y-3">
-    <div class="font-cinzel text-sm text-white font-semibold tracking-[0.2em]">MAISON PRIVÉ × THE FRAGRANCE STUDIO</div>
-    <p class="font-light">Orfebrería en Plata .925, Vaqueta Vegetal Tarijeña y Fraccionamiento Olfativo DTC.</p>
-    <div class="text-[10px] text-neutral-600 pt-4">
-      © 2026 MAISON PRIVÉ CONCIERGE. Todos los derechos reservados.
+  <!-- Footer -->
+  <footer class="max-w-6xl mx-auto px-6 py-8 text-sm text-gray-500">
+    <div class="flex items-center justify-between">
+      <div>© Maison Privé Atelier — Maison Privé Concierge</div>
+      <div>Contacto privado por WhatsApp</div>
     </div>
   </footer>
 
-  <!-- 7. Script Controlador del Frontend -->
-  <script>
-    // Variables de Estado
-    const state = {
-      intencion_uso: 'Directorio / Ejecutivo',
-      acuerdo_mineral: 'Ónix Negro',
-      perfil_olfativo: 'Cuero & Maderas Nobles',
-      bundle_preseleccionado: null
-    };
+  <!-- WhatsApp floating CTA -->
+  <a id="whatsapp-cta" href="#" target="_blank" class="fixed right-6 bottom-6 bg-green-600 text-white rounded-full p-4 shadow-lg flex items-center space-x-3">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M..."/></svg>
+    <span class="hidden sm:inline text-sm">Concierge</span>
+  </a>
 
-    // Inicializar Smooth Scroll (Lenis)
-    const lenis = new Lenis({ duration: 1.2, smooth: true });
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+  <!-- Product Modal -->
+  <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-6">
+    <div class="bg-white rounded-lg max-w-2xl w-full overflow-hidden">
+      <div class="p-6">
+        <h4 id="modal-title" class="text-xl font-semibold"></h4>
+        <p id="modal-desc" class="text-gray-600 mt-2"></p>
+        <div class="mt-4 flex items-center justify-between">
+          <div class="text-lg font-medium" id="modal-price"></div>
+          <div>
+            <button id="modal-reserve" class="bg-gray-900 text-white px-4 py-2 rounded">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 text-right">
+        <button id="modal-close" class="text-sm text-gray-500">Cerrar</button>
+      </div>
+    </div>
+  </div>
 
-    // Navegación de Pasos del Quiz
-    function irAlPaso(paso) {
-      document.getElementById('quiz-step-1').classList.add('hidden');
-      document.getElementById('quiz-step-2').classList.add('hidden');
-      document.getElementById('quiz-step-3').classList.add('hidden');
-      
-      document.getElementById(`quiz-step-${paso}`).classList.remove('hidden');
-
-      const ind1 = document.getElementById('step-indicator-1');
-      const ind2 = document.getElementById('step-indicator-2');
-      const ind3 = document.getElementById('step-indicator-3');
-      
-      ind1.className = paso === 1 ? 'font-semibold text-brand-gold' : 'font-medium text-neutral-600';
-      ind2.className = paso === 2 ? 'font-semibold text-brand-gold' : 'font-medium text-neutral-600';
-      ind3.className = paso === 3 ? 'font-semibold text-brand-gold' : 'font-medium text-neutral-600';
-    }
-
-    function seleccionarUso(uso, btn) {
-      state.intencion_uso = uso;
-      document.querySelectorAll('.uso-btn').forEach(b => b.classList.remove('border-brand-gold'));
-      btn.classList.add('border-brand-gold');
-    }
-
-    function seleccionarMineral(mineral, btn) {
-      state.acuerdo_mineral = mineral;
-      document.querySelectorAll('.mineral-btn').forEach(b => b.classList.remove('border-brand-gold', 'bg-white/10'));
-      btn.classList.add('border-brand-gold', 'bg-white/10');
-    }
-
-    function seleccionarOlfato(olfato, btn) {
-      state.perfil_olfativo = olfato;
-      document.querySelectorAll('.olfato-btn').forEach(b => b.classList.remove('border-brand-gold', 'bg-white/10'));
-      btn.classList.add('border-brand-gold', 'bg-white/10');
-    }
-
-    function preseleccionarBundle(id, nombre, mineral) {
-      state.bundle_preseleccionado = id;
-      state.acuerdo_mineral = mineral;
-      irAlPaso(3);
-      document.getElementById('diagnostico').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Envío Asíncrono hacia Backend / WhatsApp Concierge (+59175110085)
-    async function enviarDiagnostico(event) {
-      event.preventDefault();
-      const submitBtn = document.getElementById('submitBtn');
-      submitBtn.disabled = true;
-      submitBtn.innerText = "CALIBRANDO ASIGNACIÓN...";
-
-      const payload = {
-        nombre: document.getElementById('nombreInput').value.trim(),
-        telefono: document.getElementById('telefonoInput').value.trim(),
-        ciudad: document.getElementById('ciudadInput').value,
-        intencion_uso: state.intencion_uso,
-        acuerdo_mineral: state.acuerdo_mineral,
-        perfil_olfativo: state.perfil_olfativo,
-        codigo_referido: ""
-      };
-
-      const XANO_ENDPOINT = 'https://TU_XANO_API_URL/api:v1/concierge/diagnostic';
-      const WHATSAPP_NUMERO = '59175110085';
-
-      try {
-        const response = await fetch(XANO_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          window.location.href = data.whatsapp_direct_url;
-        } else {
-          throw new Error('Error en API');
-        }
-      } catch (error) {
-        // Enlace estructurado directo a WhatsApp Business Concierge
-        const fallbackMsg = encodeURIComponent(
-          `🛎️ *SOLICITUD DE ASIGNACIÓN — LOTE CERO*\n` +
-          `*Maison Privé × The Fragrance Studio*\n` +
-          `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-          `• *Cliente:* ${payload.nombre}\n` +
-          `• *Teléfono:* ${payload.telefono}\n` +
-          `• *Ciudad:* ${payload.ciudad}\n` +
-          `• *Materia Mineral (Maison Privé):* ${payload.acuerdo_mineral}\n` +
-          `• *Curaduría Olfativa (The Fragrance Studio):* ${payload.perfil_olfativo}\n` +
-          `• *Contexto de Presencia:* ${payload.intencion_uso}\n` +
-          `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-          `Deseo coordinar la asignación y despacho prioritario de mi set.`
-        );
-        window.location.href = `https://wa.me/${WHATSAPP_NUMERO}?text=${fallbackMsg}`;
-      }
-    }
-  </script>
+  <script src="/assets/app.js"></script>
 </body>
 </html>
