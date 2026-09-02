@@ -1,34 +1,29 @@
-// Configuración inicial - reemplaza placeholders
-const XANO_API = "https://YOUR_XANO_ENDPOINT/api"; // reemplazar
-const WHATSAPP_NUMBER = "59175110085"; // número sin + ni espacios
+const WHATSAPP_NUMBER = "59175110085";
 const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
-
-// Catálogo de ejemplo (reemplazar por fetch a Xano)
 const PRODUCTS = [
-  { id: "p-001", title: "Cuff Cuero Vegetal", price: 1200, desc: "Cuff cuero vegetal con cabujón amatista. Uso ejecutivo." },
-  { id: "p-002", title: "Pulsera Ónix", price: 350, desc: "Pulsera cuentas ónix, estilo sobrio." },
-  { id: "p-003", title: "Cuff Atelier Granate", price: 2800, desc: "Edición limitada, preventa con anticipo." }
+  { id: "p-001", title: "Cuff Cuero Vegetal", price: 1200, desc: "Cuff cuero vegetal con cabujón amatista. Uso ejecutivo.", img:"/assets/product-1.jpg" },
+  { id: "p-002", title: "Pulsera Ónix", price: 350, desc: "Pulsera cuentas ónix, estilo sobrio.", img:"/assets/product-2.jpg" },
+  { id: "p-003", title: "Cuff Atelier Granate", price: 2800, desc: "Edición limitada, preventa con anticipo.", img:"/assets/product-3.jpg" }
 ];
 
-// Render productos
+function formatBs(n){ return `Bs. ${n.toLocaleString('es-BO')}`; }
+
 const grid = document.getElementById("product-grid");
 PRODUCTS.forEach(p => {
-  const card = document.createElement("div");
-  card.className = "bg-white rounded-lg p-4 shadow-sm";
-  card.innerHTML = `
+  const el = document.createElement("div");
+  el.className = "card";
+  el.innerHTML = `
+    <div class="h-44 w-full rounded overflow-hidden mb-4"><img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover"></div>
     <h4 class="font-semibold">${p.title}</h4>
-    <p class="text-sm text-gray-500 mt-2">${p.desc}</p>
+    <p class="text-sm text-muted mt-2">${p.desc}</p>
     <div class="mt-4 flex items-center justify-between">
-      <div class="text-lg font-medium">Bs. ${p.price}</div>
-      <div>
-        <button class="btn-open text-sm text-gray-700" data-id="${p.id}">Ver</button>
-      </div>
+      <div class="text-lg font-medium">${formatBs(p.price)}</div>
+      <button class="btn-open btn-outline" data-id="${p.id}">Ver</button>
     </div>
   `;
-  grid.appendChild(card);
+  grid.appendChild(el);
 });
 
-// Modal logic
 const modal = document.getElementById("product-modal");
 const modalTitle = document.getElementById("modal-title");
 const modalDesc = document.getElementById("modal-desc");
@@ -36,55 +31,38 @@ const modalPrice = document.getElementById("modal-price");
 const modalReserve = document.getElementById("modal-reserve");
 const modalClose = document.getElementById("modal-close");
 
-document.querySelectorAll(".btn-open").forEach(btn => {
-  btn.addEventListener("click", e => {
+document.addEventListener("click", e => {
+  if(e.target.matches(".btn-open")){
     const id = e.target.dataset.id;
-    const p = PRODUCTS.find(x => x.id === id);
+    const p = PRODUCTS.find(x=>x.id===id);
     modalTitle.textContent = p.title;
     modalDesc.textContent = p.desc;
-    modalPrice.textContent = `Bs. ${p.price}`;
+    modalPrice.textContent = formatBs(p.price);
     modalReserve.dataset.sku = p.id;
     modal.classList.remove("hidden");
     modal.classList.add("flex");
-  });
+  }
+  if(e.target === modalClose) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+  if(e.target === modalReserve){
+    const sku = e.target.dataset.sku;
+    const product = PRODUCTS.find(x=>x.id===sku);
+    const message = `Hola Maison Privé, deseo reservar: ${product.title} (SKU ${product.id}). Ciudad de entrega: [Ciudad]. Prefiero recomendación inmediata.`;
+    // Optional: register lead to Xano via fetch (add your endpoint)
+    // fetch("https://YOUR_XANO/api/leads", { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({sku:product.id, source:"web"}) });
+    window.open(`${WHATSAPP_BASE}?text=${encodeURIComponent(message)}`, "_blank");
+  }
+  if(e.target.matches(".reserve")){
+    const sku = e.target.dataset.sku;
+    const message = `Hola Maison Privé, quiero reservar ${sku}. Soy de [Ciudad].`;
+    window.open(`${WHATSAPP_BASE}?text=${encodeURIComponent(message)}`, "_blank");
+  }
 });
 
-modalClose.addEventListener("click", () => {
-  modal.classList.add("hidden");
-  modal.classList.remove("flex");
-});
-
-// Reserve button opens WhatsApp prefilled message and triggers Xano webhook (optional)
-function openWhatsApp(prefill) {
-  const text = encodeURIComponent(prefill);
-  window.open(`${WHATSAPP_BASE}?text=${text}`, "_blank");
-}
-
-modalReserve.addEventListener("click", (e) => {
-  const sku = e.target.dataset.sku;
-  const product = PRODUCTS.find(x => x.id === sku);
-  const message = `Hola, soy cliente interesado en reservar: ${product.title} (SKU ${product.id}). Ciudad de entrega: [Tu ciudad]. Prefiero recomendación inmediata.`;
-  // Opcional: enviar evento a Xano via fetch (registro de lead)
-  fetch(`${XANO_API}/leads`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ phone: null, sku: product.id, source: "web", note: "Reserva iniciada por web" })
-  }).catch(()=>{ /* no bloquear experiencia */ });
-  openWhatsApp(message);
-});
-
-// Floating CTA
-document.getElementById("whatsapp-cta").href = `${WHATSAPP_BASE}?text=${encodeURIComponent("Hola, quiero atención privada con Maison Privé Concierge.")}`;
-document.getElementById("btn-consult").addEventListener("click", (e) => {
+document.getElementById("btn-consult").addEventListener("click", (e)=>{
   e.preventDefault();
-  openWhatsApp("Hola, deseo una recomendación privada. Mi ciudad es [Ciudad], presupuesto [Bs.].");
-});
-
-// Bundles reserve buttons
-document.querySelectorAll(".btn-reserve").forEach(b => {
-  b.addEventListener("click", () => {
-    const sku = b.dataset.sku;
-    const message = `Hola, quiero reservar el ${sku}. Soy de [Ciudad].`;
-    openWhatsApp(message);
-  });
+  const msg = "Hola Maison Privé, deseo una recomendación privada. Mi ciudad es [Ciudad], presupuesto [Bs.].";
+  window.open(`${WHATSAPP_BASE}?text=${encodeURIComponent(msg)}`, "_blank");
 });
