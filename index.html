@@ -7,84 +7,84 @@
   <meta name="description" content="Maison Privé Atelier · Joyería mineral y curaduría privada. Atención por concierge." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="./assets/styles.css">
 </head>
-<body class="bg-ivory text-charcoal antialiased">
+<body class="bg-charcoal text-ivory antialiased">
+  <!-- Header -->
   <header class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
     <div class="flex items-center space-x-4">
-      <div class="w-14 h-14 rounded-full bg-charcoal text-ivory flex items-center justify-center font-semibold text-lg">MP</div>
+      <div class="w-14 h-14 rounded-full bg-gold text-charcoal flex items-center justify-center font-semibold text-lg">MP</div>
       <div>
         <h1 class="text-base font-medium tracking-wide">Maison Privé Concierge</h1>
         <p class="text-xs text-muted">Maison Privé Atelier · Lujo de Origen Verificado</p>
       </div>
     </div>
     <nav class="hidden md:flex space-x-6 text-sm">
-      <a href="#catalogo" class="hover:underline">Catálogo</a>
-      <a href="#bundles" class="hover:underline">Bundles</a>
-      <a href="#cata" class="hover:underline">Cata Privada</a>
+      <a href="#catalogo" class="hover:text-gold">Catálogo</a>
+      <a href="#bundles" class="hover:text-gold">Bundles</a>
+      <a href="#cata" class="hover:text-gold">Cata Privada</a>
     </nav>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h2 class="font-serif text-4xl leading-tight text-charcoal">Atelier en Tarija · Atención privada</h2>
-        <p class="mt-6 text-lg text-muted max-w-xl">Curaduría de joyería mineral y piezas Atelier. Recomendaciones personalizadas por nuestro concierge híbrido IA + humano. Reservas por invitación.</p>
-        <div class="mt-8 flex items-center space-x-4">
-          <a id="btn-consult" class="btn-primary" href="#">Solicitar atención privada</a>
-          <a href="#catalogo" class="btn-ghost">Ver catálogo seleccionado</a>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="font-serif text-4xl leading-tight text-ivory">Atelier en Tarija · Atención privada</h2>
+      <p class="mt-6 text-lg text-muted max-w-xl">Curaduría de joyería mineral y piezas Atelier. Recomendaciones personalizadas por nuestro concierge híbrido IA + humano. Reservas por invitación.</p>
+      <div class="mt-8 flex items-center space-x-4">
+        <a id="btn-consult" class="btn-primary" href="#">Solicitar atención privada</a>
+        <a href="#catalogo" class="btn-ghost">Ver catálogo seleccionado</a>
+      </div>
+      <p class="mt-4 text-xs text-muted">Sala Santa Cruz por cita. Entregas trazables desde Tarija.</p>
+    </div>
+    <div class="relative rounded-lg overflow-hidden shadow-xl">
+      <img src="./assets/hero.jpg" alt="Atelier Maison Privé" class="w-full h-96 object-cover">
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+  </section>
+
+  <!-- Catalogo -->
+  <section id="catalogo" class="max-w-6xl mx-auto px-6 py-12">
+    <h3 class="font-serif text-2xl text-ivory mb-6">Selección curada</h3>
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- JS render -->
+    </div>
+  </section>
+
+  <!-- Bundles -->
+  <section id="bundles" class="bg-charcoal py-12">
+    <div class="max-w-5xl mx-auto px-6">
+      <h3 class="font-serif text-2xl text-ivory mb-6">Bundles Maison Privé × The Fragrance Studio</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card">
+          <h4 class="font-semibold text-ivory">Bundle Descubrimiento</h4>
+          <p class="text-sm text-muted mt-2">Pulsera ónix + decant 5ml</p>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-lg font-medium text-gold">Bs. 320</div>
+            <button class="btn-outline reserve" data-sku="bundle-1">Reservar</button>
+          </div>
         </div>
-        <p class="mt-4 text-xs text-muted">Sala Santa Cruz por cita. Entregas trazables desde Tarija.</p>
-      </div>
-      <div class="relative rounded-lg overflow-hidden shadow-xl">
-        <img src="/assets/hero.jpg" alt="Atelier Maison Privé" class="w-full h-96 object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-      </div>
-    </section>
-
-    <!-- Catalogo -->
-    <section id="catalogo" class="max-w-6xl mx-auto px-6 py-12">
-      <h3 class="font-serif text-2xl text-charcoal mb-6">Selección curada</h3>
-      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- JS render -->
-      </div>
-    </section>
-
-    <!-- Bundles -->
-    <section id="bundles" class="bg-ivory-2 py-12">
-      <div class="max-w-5xl mx-auto px-6">
-        <h3 class="font-serif text-2xl text-charcoal mb-6">Bundles Maison Privé × The Fragrance Studio</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="card">
-            <h4 class="font-semibold">Bundle Descubrimiento</h4>
-            <p class="text-sm text-muted mt-2">Pulsera ónix + decant 5ml</p>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="text-lg font-medium">Bs. 320</div>
-              <button class="btn-outline reserve" data-sku="bundle-1">Reservar</button>
-            </div>
+        <div class="card">
+          <h4 class="font-semibold text-ivory">Bundle Ejecutivo</h4>
+          <p class="text-sm text-muted mt-2">Cuff cuero + decant 10ml</p>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-lg font-medium text-gold">Bs. 1.250</div>
+            <button class="btn-outline reserve" data-sku="bundle-2">Reservar</button>
           </div>
-          <div class="card">
-            <h4 class="font-semibold">Bundle Ejecutivo</h4>
-            <p class="text-sm text-muted mt-2">Cuff cuero + decant 10ml</p>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="text-lg font-medium">Bs. 1.250</div>
-              <button class="btn-outline reserve" data-sku="bundle-2">Reservar</button>
-            </div>
-          </div>
-          <div class="card">
-            <h4 class="font-semibold">Pase Privado</h4>
-            <p class="text-sm text-muted mt-2">Acceso a Sala Santa Cruz por cita</p>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="text-lg font-medium">Bs. 150</div>
-              <button class="btn-outline reserve" data-sku="bundle-3">Solicitar</button>
-            </div>
+        </div>
+        <div class="card">
+          <h4 class="font-semibold text-ivory">Pase Privado</h4>
+          <p class="text-sm text-muted mt-2">Acceso a Sala Santa Cruz por cita</p>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-lg font-medium text-gold">Bs. 150</div>
+            <button class="btn-outline reserve" data-sku="bundle-3">Solicitar</button>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
+  <!-- Footer -->
   <footer class="max-w-6xl mx-auto px-6 py-10 text-sm text-muted">
     <div class="flex items-center justify-between">
       <div>© Maison Privé Atelier — Maison Privé Concierge</div>
@@ -99,13 +99,13 @@
   </a>
 
   <!-- Modal -->
-  <div id="product-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-6">
-    <div class="bg-white rounded-lg max-w-2xl w-full overflow-hidden">
+  <div id="product-modal" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-6">
+    <div class="bg-charcoal rounded-lg max-w-2xl w-full overflow-hidden border border-gold/20">
       <div class="p-8">
-        <h4 id="modal-title" class="text-2xl font-serif text-charcoal"></h4>
+        <h4 id="modal-title" class="text-2xl font-serif text-ivory"></h4>
         <p id="modal-desc" class="text-muted mt-3"></p>
         <div class="mt-6 flex items-center justify-between">
-          <div class="text-xl font-medium" id="modal-price"></div>
+          <div class="text-xl font-medium text-gold" id="modal-price"></div>
           <div>
             <button id="modal-reserve" class="btn-primary">Reservar</button>
           </div>
@@ -117,6 +117,6 @@
     </div>
   </div>
 
-  <script src="/assets/app.js"></script>
+  <script src="./assets/app.js"></script>
 </body>
 </html>
